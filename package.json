@@ -2,7 +2,6 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "source": "src/app.js",
-  "module": "dist/module.js",
   "description": "",
   "scripts": {
     "start": "parcel src/*.html",
