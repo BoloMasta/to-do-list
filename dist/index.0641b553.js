@@ -595,6 +595,7 @@ form.addEventListener("submit", (event)=>{
         list_el.removeChild(task_el);
         console.log(task_el.children[1].children[0].value);
         (0, _notiflixDefault.default).Notify.failure(`Task: "${task_el.children[1].children[0].value}" done.`);
+        if (list_el.children.length === 0) trash.classList.add("is-hidden");
     });
     if (list_el.children.length >= 1) trash.classList.remove("is-hidden");
 });
@@ -628,7 +629,7 @@ iconPickerButton.on("select", (instance)=>{
 });
 (0, _notiflixDefault.default).Notify.info("Welcome to the to-do list. Enter your tasks.");
 
-},{"vanilla-icon-picker":"3FobB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","vanilla-icon-picker/dist/themes/default.min.css":"dHief","notiflix":"5WWYd"}],"3FobB":[function(require,module,exports) {
+},{"vanilla-icon-picker/dist/themes/default.min.css":"dHief","vanilla-icon-picker":"3FobB","notiflix":"5WWYd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dHief":[function() {},{}],"3FobB":[function(require,module,exports) {
 /*! Icon Picker 1.1.3 MIT | https://github.com/AppoloDev/icon-picker */ !function(e, t) {
     module.exports = t();
 }(self, function() {
@@ -857,37 +858,7 @@ iconPickerButton.on("select", (instance)=>{
     })();
 });
 
-},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"dHief":[function() {},{}],"5WWYd":[function(require,module,exports) {
+},{}],"5WWYd":[function(require,module,exports) {
 var global = arguments[3];
 /* Notiflix AIO (https://notiflix.github.io) - Version: 3.2.5 - Author: Furkan MT (https://github.com/furcan) - Copyright 2019 - 2022 Notiflix, MIT Licence (https://opensource.org/licenses/MIT) */ (function(t, e) {
     "function" == typeof define && define.amd ? define([], function() {
@@ -1645,6 +1616,36 @@ var global = arguments[3];
         Block: G.Block
     };
 });
+
+},{}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["7Aums","bNKaB"], "bNKaB", "parcelRequiree5c7")
 

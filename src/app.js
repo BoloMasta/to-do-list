@@ -79,6 +79,10 @@ form.addEventListener("submit", (event) => {
     Notiflix.Notify.failure(
       `Task: "${task_el.children[1].children[0].value}" done.`
     );
+
+    if (list_el.children.length === 0) {
+      trash.classList.add("is-hidden");
+    }
   });
 
   if (list_el.children.length >= 1) {
