@@ -2,7 +2,7 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "source": "dist/app.js",
-  "description": "",
+  "description": "to-do list by Bolek Adamiec",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /to-do-list/"
@@ -24,5 +24,7 @@
   "devDependencies": {
     "parcel": "^2.7.0"
   },
-  "browserslist": "> 0.25%, not dead"
+  "browserslist": "> 0.25%, not dead",
+  "main": "index.js",
+  "keywords": []
 }
