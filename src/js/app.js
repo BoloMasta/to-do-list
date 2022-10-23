@@ -11,29 +11,49 @@ export const trashIcon = document.querySelector("#trash__icon");
 // theme change
 const root = document.querySelector(":root");
 const changeThemeButton = document.querySelector("#change-theme");
+
+const setDarkTheme = () => {
+  changeThemeButton.src = "./change-theme-white.png";
+  root.style.setProperty("--background", "#202c39");
+  root.style.setProperty("--task", "#b8b08d");
+  root.style.setProperty("--placeholder", "#736e6e");
+  root.style.setProperty("--text", "#252323");
+  root.style.setProperty("--text-button", "#ff3700");
+  root.style.setProperty("--header-gradient", "#7a0485");
+  root.style.setProperty("--delete", "#eb0000");
+};
+
+const setLightTheme = () => {
+  changeThemeButton.src = "./change-theme.png";
+  root.style.setProperty("--background", "#a9d6e5");
+  root.style.setProperty("--task", "#01173d");
+  root.style.setProperty("--placeholder", "#555555");
+  root.style.setProperty("--text", "#eee2df");
+  root.style.setProperty("--text-button", "#ff6d00");
+  root.style.setProperty("--header-gradient", "#7a0485");
+  root.style.setProperty("--delete", "#eb0000");
+};
+
 changeThemeButton.addEventListener("click", () => {
   const darkTheme = changeThemeButton.classList.toggle("dark");
 
   if (darkTheme) {
-    changeThemeButton.src = "change-theme-white.20d739bc.png";
-    root.style.setProperty("--background", "#202c39");
-    root.style.setProperty("--task", "#b8b08d");
-    root.style.setProperty("--placeholder", "#736e6e");
-    root.style.setProperty("--text", "#252323");
-    root.style.setProperty("--text-button", "#ff3700");
-    root.style.setProperty("--header-gradient", "#7a0485");
-    root.style.setProperty("--delete", "#eb0000");
+    localStorage.setItem("theme", "dark");
+    setDarkTheme();
   } else {
-    changeThemeButton.src = "./change-theme.fb537ffc.png";
-    root.style.setProperty("--background", "#a9d6e5");
-    root.style.setProperty("--task", "#01173d");
-    root.style.setProperty("--placeholder", "#555555");
-    root.style.setProperty("--text", "#eee2df");
-    root.style.setProperty("--text-button", "#ff6d00");
-    root.style.setProperty("--header-gradient", "#7a0485");
-    root.style.setProperty("--delete", "#eb0000");
+    localStorage.setItem("theme", "light");
+    setLightTheme();
   }
 });
+
+if (localStorage.getItem("theme") === "dark") {
+  changeThemeButton.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+  setDarkTheme();
+} else {
+  localStorage.setItem("theme", "light");
+  setLightTheme();
+}
 
 // generate new task
 form.addEventListener("submit", (event) => {
@@ -76,4 +96,4 @@ iconPickerButton.on("select", (instance) => {
 });
 
 // welcome message
-Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
+// Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
