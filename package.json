@@ -25,6 +25,5 @@
     "parcel": "^2.7.0"
   },
   "browserslist": "> 0.25%, not dead",
-  "main": "index.js",
   "keywords": []
 }
