@@ -13,7 +13,7 @@ const root = document.querySelector(":root");
 const changeThemeButton = document.querySelector("#change-theme");
 
 const setDarkTheme = () => {
-  changeThemeButton.src = "./change-theme-white.png";
+  changeThemeButton.src = "./change-theme-white.20d739bc.png";
   root.style.setProperty("--background", "#202c39");
   root.style.setProperty("--task", "#b8b08d");
   root.style.setProperty("--placeholder", "#736e6e");
@@ -24,7 +24,7 @@ const setDarkTheme = () => {
 };
 
 const setLightTheme = () => {
-  changeThemeButton.src = "./change-theme.png";
+  changeThemeButton.src = "./change-theme.fb537ffc.png";
   root.style.setProperty("--background", "#a9d6e5");
   root.style.setProperty("--task", "#01173d");
   root.style.setProperty("--placeholder", "#555555");
