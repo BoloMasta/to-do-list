@@ -5,14 +5,13 @@
   "description": "",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /to-do-list/",
-    "deploy": "rm -rf dist/ && npm run build && gh-pages -d dist"
+    "build": "parcel build src/*.html --public-url /to-do-list/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BoloMasta/to-do-list.git"
   },
-  "author": "John Doe",
+  "author": "Bolek Adamiec",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BoloMasta/to-do-list/issues"
