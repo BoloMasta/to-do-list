@@ -15,8 +15,6 @@ const changeThemeButton = document.querySelector("#change-theme");
 const changeIconBlack = require("../img/change-theme.png");
 const changeIconWhite = require("../img/change-theme-white.png");
 
-let allIcons;
-
 const setDarkTheme = () => {
   changeThemeButton.src = changeIconWhite;
   root.style.setProperty("--background", "#202c39");
@@ -27,7 +25,7 @@ const setDarkTheme = () => {
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
 
-  allIcons = document.querySelectorAll(".task button.task__icon svg");
+  const allIcons = document.querySelectorAll(".task button.task__icon svg");
   for (icon of allIcons) {
     icon.children[0].style.fill =
       getComputedStyle(root).getPropertyValue("--text");
@@ -44,7 +42,7 @@ const setLightTheme = () => {
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
 
-  allIcons = document.querySelectorAll(".task button.task__icon svg");
+  const allIcons = document.querySelectorAll(".task button.task__icon svg");
   for (icon of allIcons) {
     icon.children[0].style.fill =
       getComputedStyle(root).getPropertyValue("--text");
@@ -89,6 +87,7 @@ trashIcon.addEventListener("click", () => {
       taskList.innerText = "";
       trashIcon.classList.add("is-hidden");
       Notiflix.Notify.failure(`All tasks removed.`);
+      localStorage.removeItem("tasks");
     },
     function cancelCb() {
       return;

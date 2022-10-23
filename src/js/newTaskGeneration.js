@@ -69,6 +69,14 @@ export const newTaskGeneration = () => {
     `Task: "${task_div.children[1].children[0].value}" added.`
   );
 
+  let localTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  if (localTasks === null) {
+    localTasks = "";
+  }
+  localTasks += input.value + ", ";
+  localStorage.setItem("tasks", JSON.stringify(localTasks));
+
   input.value = "";
 
   // edition of the task
