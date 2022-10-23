@@ -1,13 +1,3 @@
-/* :root {
-  --background: #a9d6e5;
-  --task: #01173d;
-  --placeholder: #555555;
-  --text: #eee2df;
-  --text-button: #ff6d00;
-  --header-gradient: #7a0485;
-  --delete: #eb0000;
-} */
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -196,6 +186,7 @@ main {
   border-radius: 0.8rem;
   margin-bottom: 1rem;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
 }
 
 .task__content {

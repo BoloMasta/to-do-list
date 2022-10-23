@@ -1,3 +1,5 @@
+import "vanilla-icon-picker/dist/themes/default.min.css";
+import IconPicker from "vanilla-icon-picker";
 import Notiflix from "notiflix";
 import { taskList, trashIcon } from "./app";
 
@@ -12,9 +14,26 @@ export const newTaskGeneration = () => {
   const task_div = document.createElement("div");
   task_div.classList.add("task");
 
-  const task_icon = document.createElement("div");
+  const task_icon = document.createElement("button");
   task_icon.classList.add("task__icon");
   task_icon.innerHTML = iconChange.innerHTML;
+  task_icon.style.setProperty("opacity", "1");
+
+  // Icon picker with `default` theme
+  const iconPickerButton = new IconPicker(task_icon, {
+    theme: "default",
+    iconSource: ["FontAwesome Solid 5", "FontAwesome Regular 5"],
+    closeOnSelect: true,
+    defaultValue: null,
+  });
+
+  iconPickerButton.on("select", (instance) => {
+    task_icon.innerHTML = instance.svg;
+    task_icon.children[0].children[0].style.fill =
+      getComputedStyle(root).getPropertyValue("--text-button");
+  });
+  task_icon.disabled = true;
+
   task_div.appendChild(task_icon);
 
   const task_content_div = document.createElement("div");
@@ -53,14 +72,27 @@ export const newTaskGeneration = () => {
   input.value = "";
 
   // edition of the task
+  const root = document.querySelector(":root");
   task_edit_button.addEventListener("click", (event) => {
-    if (task_edit_button.innerText.toLowerCase() == "edit") {
-      task_edit_button.innerText = "Save";
+    if (task_edit_button.innerText.toLowerCase() === "edit") {
+      task_edit_button.innerText = "save";
       task_input.readOnly = false;
       task_input.focus();
+
+      task_icon.children[0].children[0].style.fill =
+        getComputedStyle(root).getPropertyValue("--text-button");
+
+      task_icon.disabled = false;
+      task_icon.style.cursor = "pointer";
     } else {
-      task_edit_button.innerText = "Edit";
+      task_edit_button.innerText = "edit";
       task_input.readOnly = true;
+      task_icon.disabled = true;
+      task_icon.style.cursor = "default";
+
+      task_icon.children[0].children[0].style.fill =
+        getComputedStyle(root).getPropertyValue("--text");
+
       Notiflix.Notify.warning("Task edited.");
     }
   });

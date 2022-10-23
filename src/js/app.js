@@ -21,6 +21,12 @@ const setDarkTheme = () => {
   root.style.setProperty("--text-button", "#ff3700");
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
+
+  const allIcons = document.querySelectorAll(".task button.task__icon svg");
+  for (icon of allIcons) {
+    icon.children[0].style.fill =
+      getComputedStyle(root).getPropertyValue("--text");
+  }
 };
 
 const setLightTheme = () => {
@@ -32,6 +38,12 @@ const setLightTheme = () => {
   root.style.setProperty("--text-button", "#ff6d00");
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
+
+  const allIcons = document.querySelectorAll(".task button.task__icon svg");
+  for (icon of allIcons) {
+    icon.children[0].style.fill =
+      getComputedStyle(root).getPropertyValue("--text");
+  }
 };
 
 changeThemeButton.addEventListener("click", () => {
@@ -96,4 +108,4 @@ iconPickerButton.on("select", (instance) => {
 });
 
 // welcome message
-// Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
+Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
