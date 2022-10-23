@@ -6,7 +6,7 @@
 
 📝 each task can be edited or deleted
 
-🔆 possibility to change light-dark theme
+🔆 light-dark theme
 
 💾 the theme is saved in Local Storage
 
