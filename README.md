@@ -12,5 +12,6 @@
 
 Packages used:
 
+- parcel
 - notiflix
 - vanilla-icon-picker
