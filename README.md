@@ -8,9 +8,10 @@
 
 🔆 light-dark theme
 
-💾 the theme is saved in Local Storage
+💾 theme saved in Local Storage
 
 Packages used:
 
+- parcel
 - notiflix
 - vanilla-icon-picker
