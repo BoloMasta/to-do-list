@@ -1,6 +1,4 @@
-### Hi there!
+### to-do list by Bolek Adamiec
 
-to-do list by Bolek Adamiec
-
-each task can be edited or deleted
-possibility to change light-dark theme
+:memo: each task can be edited or deleted
+:high_brightness: possibility to change light-dark theme
