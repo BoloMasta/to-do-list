@@ -12,8 +12,11 @@ export const trashIcon = document.querySelector("#trash__icon");
 const root = document.querySelector(":root");
 const changeThemeButton = document.querySelector("#change-theme");
 
+const changeIconBlack = require("../img/change-theme.png");
+const changeIconWhite = require("../img/change-theme-white.png");
+
 const setDarkTheme = () => {
-  changeThemeButton.src = "./change-theme-white.20d739bc.png";
+  changeThemeButton.src = changeIconWhite;
   root.style.setProperty("--background", "#202c39");
   root.style.setProperty("--task", "#b8b08d");
   root.style.setProperty("--placeholder", "#736e6e");
@@ -30,7 +33,7 @@ const setDarkTheme = () => {
 };
 
 const setLightTheme = () => {
-  changeThemeButton.src = "./change-theme.fb537ffc.png";
+  changeThemeButton.src = changeIconBlack;
   root.style.setProperty("--background", "#a9d6e5");
   root.style.setProperty("--task", "#01173d");
   root.style.setProperty("--placeholder", "#555555");
