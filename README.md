@@ -8,7 +8,7 @@
 
 🔆 light-dark theme
 
-💾 theme saved in Local Storage
+💾 theme and tasks saved in Local Storage
 
 Packages used:
 
