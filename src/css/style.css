@@ -196,6 +196,10 @@ main {
 .task__icon {
   width: 24px;
   height: 24px;
+  color: var(--text-button);
+}
+
+.task__icon:disabled {
   color: var(--text);
 }
 

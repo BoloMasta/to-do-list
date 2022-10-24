@@ -24,12 +24,6 @@ const setDarkTheme = () => {
   root.style.setProperty("--text-button", "#ff3700");
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
-
-  const allIcons = document.querySelectorAll(".task button.task__icon svg");
-  for (icon of allIcons) {
-    icon.children[0].style.fill =
-      getComputedStyle(root).getPropertyValue("--text");
-  }
 };
 
 const setLightTheme = () => {
@@ -41,12 +35,6 @@ const setLightTheme = () => {
   root.style.setProperty("--text-button", "#ff6d00");
   root.style.setProperty("--header-gradient", "#7a0485");
   root.style.setProperty("--delete", "#eb0000");
-
-  const allIcons = document.querySelectorAll(".task button.task__icon svg");
-  for (icon of allIcons) {
-    icon.children[0].style.fill =
-      getComputedStyle(root).getPropertyValue("--text");
-  }
 };
 
 changeThemeButton.addEventListener("click", () => {
@@ -70,10 +58,29 @@ if (localStorage.getItem("theme") === "dark") {
   setLightTheme();
 }
 
+const input = document.querySelector("#new-task-form__input");
+
 // generate new task
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  newTaskGeneration();
+
+  if (input.value.length === 0) {
+    Notiflix.Notify.failure(`Enter some task please.`);
+    return;
+  }
+
+  newTaskGeneration(iconChange.innerHTML, input.value);
+
+  let newTask = { icon: iconChange.innerHTML, task: input.value };
+  console.log(newTask);
+  let localTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  if (localTasks === null) {
+    localTasks = [];
+  }
+  localTasks.push(newTask);
+  localStorage.setItem("tasks", JSON.stringify(localTasks));
+  input.value = "";
 });
 
 // trash icon to delete all tasks
@@ -113,3 +120,9 @@ iconPickerButton.on("select", (instance) => {
 
 // welcome message
 Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
+
+// show form local storage
+let savedTasks = JSON.parse(localStorage.getItem("tasks"));
+savedTasks = savedTasks.forEach((element) => {
+  newTaskGeneration(element.icon, element.task);
+});
