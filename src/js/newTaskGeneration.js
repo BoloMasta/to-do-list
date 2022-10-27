@@ -101,7 +101,10 @@ export const newTaskGeneration = (icon, task) => {
   task_delete_button.addEventListener("click", (event) => {
     let localTasks = JSON.parse(localStorage.getItem("tasks"));
     localTasks.forEach((task) => {
-      if (task.task === task_div.children[1].children[0].value) {
+      if (
+        task.task === task_div.children[1].children[0].value &&
+        task.icon === task_div.children[0].innerHTML
+      ) {
         localTasks.splice(localTasks.indexOf(task), 1);
         localStorage.setItem("tasks", JSON.stringify(localTasks));
       }

@@ -72,7 +72,6 @@ form.addEventListener("submit", (event) => {
   newTaskGeneration(iconChange.innerHTML, input.value);
 
   let newTask = { icon: iconChange.innerHTML, task: input.value };
-  console.log(newTask);
   let localTasks = JSON.parse(localStorage.getItem("tasks"));
 
   if (localTasks === null) {
@@ -118,11 +117,11 @@ iconPickerButton.on("select", (instance) => {
   iconChange.innerHTML = instance.svg;
 });
 
-// welcome message
-Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
-
 // show form local storage
 let savedTasks = JSON.parse(localStorage.getItem("tasks"));
 savedTasks = savedTasks.forEach((element) => {
   newTaskGeneration(element.icon, element.task);
 });
+
+// welcome message
+Notiflix.Notify.info("Welcome to the to-do list. Enter your tasks.");
